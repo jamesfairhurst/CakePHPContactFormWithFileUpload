@@ -100,7 +100,7 @@ class Contact extends AppModel {
 			}
 
 			// build full filename
-			$filename = WWW_ROOT . $this->uploadDir . DS . pathinfo(Inflector::slug($check['filename']['name']), PATHINFO_FILENAME).'.'.pathinfo($check['filename']['name'], PATHINFO_EXTENSION);
+			$filename = WWW_ROOT . $this->uploadDir . DS . Inflector::slug(pathinfo($check['filename']['name'], PATHINFO_FILENAME)).'.'.pathinfo($check['filename']['name'], PATHINFO_EXTENSION);
 
 			// @todo check for duplicate filename
 
