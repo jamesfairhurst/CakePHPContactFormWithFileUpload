@@ -1,6 +1,6 @@
-CREATE DATABASE `cakephp_2_2_5`;
+CREATE DATABASE `cakephp_2_2_5_testing`;
 
-USE `cakephp_2_2_5`;
+USE `cakephp_2_2_5_testing`;
 
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

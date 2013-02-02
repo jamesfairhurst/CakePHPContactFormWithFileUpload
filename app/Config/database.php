@@ -74,9 +74,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => '',
-		'password' => '',
-		'database' => '',
+		'login' => 'cakephp225',
+		'password' => 'cakephp225',
+		'database' => 'cakephp_2_2_5_testing',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

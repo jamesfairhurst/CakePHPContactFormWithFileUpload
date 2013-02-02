@@ -95,7 +95,7 @@ class Contact extends AppModel {
 		if (!empty($check['filename']['tmp_name'])) {
 
 			// check file is uploaded
-			if (!is_uploaded_file($check['filename']['tmp_name'])) {
+			if (!$this->is_uploaded_file($check['filename']['tmp_name'])) {
 				return FALSE;
 			}
 
@@ -105,7 +105,7 @@ class Contact extends AppModel {
 			// @todo check for duplicate filename
 
 			// try moving file
-			if (!move_uploaded_file($check['filename']['tmp_name'], $filename)) {
+			if (!$this->move_uploaded_file($check['filename']['tmp_name'], $filename)) {
 				return FALSE;
 
 			// file successfully uploaded
@@ -116,5 +116,22 @@ class Contact extends AppModel {
 		}
 
 		return TRUE;
+	}
+
+	/**
+	 * Wrapper method for 'is_uploaded_file' to allow testing
+	 * @param string $tmp_name
+	 */
+	public function is_uploaded_file($tmp_name) {
+		return is_uploaded_file($tmp_name);
+	}
+
+	/**
+	 * Wrapper method for 'move_uploaded_file' to allow testing
+	 * @param string $from
+	 * @param string $to
+	 */
+	public function move_uploaded_file($from, $to) {
+		return move_uploaded_file($from, $to);
 	}
 }
