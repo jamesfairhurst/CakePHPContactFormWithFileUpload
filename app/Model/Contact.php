@@ -18,7 +18,7 @@ class Contact extends AppModel {
 	 */
 	public $validate = array(
 		'name' => 'notEmpty',
-        'email' => array(
+		'email' => array(
 			'rule' => 'email',
 			'message' => 'Please enter a valid Email Address'
 		),
@@ -47,7 +47,7 @@ class Contact extends AppModel {
 				'last' => TRUE,
 			)
 		)
-    );
+	);
 
 	/**
 	 * Upload Directory relative to WWW_ROOT
