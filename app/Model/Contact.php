@@ -61,14 +61,12 @@ class Contact extends AppModel {
 	 * @return boolean
 	 */
 	public function beforeValidate($options = array()) {
-		parent::beforeSave($options);
-
 		// ignore empty file - causes issues with form validation when file is empty and optional
 		if (!empty($this->data[$this->alias]['filename']['error']) && $this->data[$this->alias]['filename']['error']==4 && $this->data[$this->alias]['filename']['size']==0) {
 			unset($this->data[$this->alias]['filename']);
 		}
 
-		return TRUE;
+		return parent::beforeValidate($options);
 	}
 
 	/**
@@ -76,13 +74,13 @@ class Contact extends AppModel {
 	 * @param array $options
 	 * @return boolean
 	 */
-	public function beforeSave() {
+	public function beforeSave($options = array()) {
 		// a file has been uploaded so grab the filepath
 		if (!empty($this->data[$this->alias]['filepath'])) {
 			$this->data[$this->alias]['filename'] = $this->data[$this->alias]['filepath'];
 		}
 		
-		return TRUE;
+		return parent::beforeSave($options);
 	}
 
 	/**
